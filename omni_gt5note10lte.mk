@@ -23,19 +23,26 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 # Inherit from our custom product configuration
 $(call inherit-product, vendor/omni/config/common.mk)
 
+# Boot animation
+TARGET_SCREEN_HEIGHT := 1024
+TARGET_SCREEN_WIDTH := 768
+
 PRODUCT_PACKAGES += \
     charger_res_images \
     charger
 
 # Release name
-PRODUCT_RELEASE_NAME := gt510wifi
+PRODUCT_RELEASE_NAME := gt5note10lte
 
-PRODUCT_NAME := omni_gt510wifi
-PRODUCT_DEVICE := gt510wifi
+PRODUCT_NAME := omni_gt5note10lte
+PRODUCT_DEVICE := gt5note10lte
 PRODUCT_BRAND := Samsung
-PRODUCT_MODEL := SM-T550
+PRODUCT_MODEL := SM-P555
 PRODUCT_MANUFACTURER := Samsung
+PRODUCT_CHARACTERISTICS := tablet
+
+PRODUCT_GMS_CLIENTID_BASE := android-samsung
 
 # DTB Work-Around
-PRODUCT_COPY_FILES += \
-     device/samsung/gt510wifi/prebuilt/dt.img:dt.img
+#PRODUCT_COPY_FILES += \
+     device/samsung/gt5note10lte/prebuilt/dt.img:dt.img
