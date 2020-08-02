@@ -15,4 +15,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/omni_gt510wifi.mk
+    $(LOCAL_DIR)/omni_gt5note10lte.mk
