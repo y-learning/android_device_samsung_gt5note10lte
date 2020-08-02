@@ -5,43 +5,16 @@ Copyright 2018 - The OmniROM Project
 For building TWRP for Samsung Galaxy Tab A 9.7" SM-P555.
 
 ### Kernel Source
-// TO-DO : Provide the link to the kernel's repo
+// TO-DO
 Check here: https://github.com/
 
-### HOW TO BUILD KERNEL FOR SM-P555_SEA_NN_XSP
-
-1. How to Build
-	- get Toolchain
-		From android git server , codesourcery and etc ..
-		 - arm-linux-androideabi-
-		
-	- edit Makefile
-		edit "CROSS_COMPILE" to right toolchain path(You downloaded).
-		  EX)  export CROSS_COMPILE= $(android platform directory you download)/android/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8/bin/arm-linux-androideabi-
-       		  Ex)  export CROSS_COMPILE=/usr/local/toolchain/arm-eabi-4.8/bin/arm-eabi-          // check the location of toolchain
-		$ export CROSS_COMPILE=(compiler path)
-		$ export ARCH=arm
-		$ mkdir output
-		$ make -C $(pwd) O=output msm8916_sec_defconfig VARIANT_DEFCONFIG=msm8916_sec_gt5note10lte_eur_defconfig SELINUX_DEFCONFIG=selinux_defconfig
-		$ make -C $(pwd) O=output 
-		$ cp output/arch/arm/boot/zImage arch/arm/boot/zImage
-		
-		Otherwise, run the executable file build_kernel.sh(toolchain is already included in the kernel code)
-		$ ./build_kernel.sh
-
-2. Output filesS
-	- Kernel : output/arch/arm/boot/zImage
-	- module : output/drivers/*/*.ko
-
-3. How to Clean	
-		$ cd output
-		$ make clean
-			
-4. How to make .tar binary for downloading into target.
-	- change current directory to Kernel/arch/arm/boot
-	- type following command
-	$ tar cvf SM-P555_SEA_NN_XSP.tar zImage
-		
+### HOW to compile
+```
+export ALLOW_MISSING_DEPENDENCIES=true;
+. build/envsetup.sh
+lunch omni_gt5note10lte-eng
+make -j64 recoveryimage
+```
 
 ### Device specifications
 =====================================
